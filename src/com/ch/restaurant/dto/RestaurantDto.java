@@ -1,7 +1,5 @@
 package com.ch.restaurant.dto;
 
-import java.sql.Date;
-
 public class RestaurantDto {
 	private int rno;
 	private String rname;
@@ -9,10 +7,10 @@ public class RestaurantDto {
 	private String raddress;
 	private String rtel;
 	private String rholiday;
-	private Date rhours;
+	private String rhours;
 	private String rparking;
 	public RestaurantDto() {}
-	public RestaurantDto(int rno, String rname, String cno, String raddress, String rtel, String rholiday, Date rhours,
+	public RestaurantDto(int rno, String rname, String cno, String raddress, String rtel, String rholiday, String rhours,
 			String rparking) {
 		this.rno = rno;
 		this.rname = rname;
@@ -59,10 +57,10 @@ public class RestaurantDto {
 	public void setRholiday(String rholiday) {
 		this.rholiday = rholiday;
 	}
-	public Date getRhours() {
+	public String getRhours() {
 		return rhours;
 	}
-	public void setRhours(Date rhours) {
+	public void setRhours(String rhours) {
 		this.rhours = rhours;
 	}
 	public String getRparking() {
