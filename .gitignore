@@ -1,4 +1,5 @@
 /build/
-/.settings/
-/.classpath
-/.progect
+.settings/
+.classpath/
+.project/
+.gitignore/
