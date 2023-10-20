@@ -14,20 +14,73 @@
 <link rel="stylesheet" href="${conPath}/css/배민.css"> 
 </head>
 <body>
+	<c:if test="${not empty param.next && empty loginErrorMsg && empty modifyResult}">
+		<script>
+			location.href = '${conPath}/${param.next}';
+		</script>
+	</c:if>
+	<c:if test="${not empty loginErrorMsg }">
+		<script>
+			alert('${loginErrorMsg}');
+			history.back();
+		</script>
+	</c:if>
+	<c:if test="${not empty modifyResult }">
+		<script>
+			alert('${modifyResult}');
+		</script>
+	</c:if>
+	<c:if test="${not empty modifyErrorMsg }">
+		<script>
+			alert('${modifyErrorMsg}');
+			history.back();
+		</script>
+	</c:if>
+	<c:if test="${not empty withdrawalResult }">
+		<script>
+			alert('${withdrawalResult}');
+		</script>
+	</c:if>
 	<div class="top-fixed"> 
 		<div class="top"></div>
 		<ul class="sns-list">
+		
+		<c:if test="${empty member}"> <!-- 로그인전화면 -->
 		<li>
 			<a href="${conPath}/loginView.do">로그인</a>
 		</li>
+		</c:if>
 		
+		<c:if test="${not empty member}"> <!-- 로그인후화면 -->
 		<li>
-			<a href="joinForm.jsp">회원가입</a>
+			<a href="${conPath}/modifyView.do">회원정보수정</a>
 		</li>
+		</c:if>
 		
+		<c:if test="${empty member}"> <!-- 회원가입전화면 -->
+		<li>
+			<a href="${conPath}/joinView.do">회원가입</a>
+		</li>
+		</c:if>
+		
+		<c:if test="${not empty member}"> <!-- 회원가입후화면 -->
+		<li>
+			<a href="${conPath}/withDrawal.do">회원탈퇴</a>
+		</li>
+		</c:if>
+		
+		<c:if test="${empty member}"> <!-- 게시판전화면 -->
 		<li>
 			<a href="boardForm.jsp">게시판</a>
 		</li>
+		</c:if>
+		
+		<c:if test="${not empty member}"> <!-- 로그아웃화면 -->
+		<li>
+			<a href="logOut.do">로그아웃</a>
+		</li>
+		</c:if>
+		
 		</ul>
 </div>
 

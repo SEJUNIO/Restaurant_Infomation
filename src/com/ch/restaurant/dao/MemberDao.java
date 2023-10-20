@@ -65,6 +65,36 @@ public class MemberDao {
 		}
 		return result;
 	}
+	// (1-1) 회원 Memail 중복체크
+		public int memailConfirm(String memail) {
+			int result = EXISTENT;
+			Connection conn = null;
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;
+			String sql = "SELECT * FROM MEMBER WHERE mEMAIL=?";
+			try {
+				conn = ds.getConnection();  //import할때 sql 로
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, memail);
+				rs = pstmt.executeQuery();
+				if(rs.next()) {
+					result = EXISTENT;
+				}else {
+					result = NON_EXISTENT;
+				}
+			}catch(SQLException e) {
+				System.out.println(e.getMessage() + " - 중복체크");
+			} finally {
+				try {
+					if(rs   !=null) rs.close();
+					if(pstmt!=null) pstmt.close();
+					if(conn !=null) conn.close();
+				} catch (SQLException e) {
+					System.out.println(e.getMessage());
+				}
+			}
+			return result;
+		}
 	// (2) 회원가입
 	public int joinMember(MemberDto member) {
 		int result = FAIL;

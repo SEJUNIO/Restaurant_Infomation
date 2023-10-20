@@ -10,6 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.ch.restaurant.service.MLoginService;
+import com.ch.restaurant.service.MemailConfirmService;
+import com.ch.restaurant.service.MidConfirmService;
+import com.ch.restaurant.service.MjoinService;
 import com.ch.restaurant.service.Service;
 @WebServlet("*.do")
 public class FrontController extends HttpServlet {
@@ -38,6 +41,24 @@ public class FrontController extends HttpServlet {
 			service = new MLoginService();
 			service.execute(request, response);
 			viewPage = "main/main.jsp";
+		}else if(command.equals("/joinView.do")) { //회원가입 화면
+			viewPage = "member/join.jsp";
+		}else if(command.equals("/midConfirm.do")) {
+			service = new MidConfirmService();
+			service.execute(request, response);
+			viewPage = "member/midConfirm.jsp";
+		}else if(command.equals("/memailConfirm.do")) {
+			service = new MemailConfirmService();
+			service.execute(request, response);
+			viewPage = "member/memailConfirm.jsp";
+		}else if(command.equals("/join.do")) {
+			service = new MjoinService();
+			service.execute(request, response);
+			viewPage = "loginView.do";
+		}else if(command.equals("/logOut.do")){
+			service = new MLogoutService();
+			service.execute(request, response);
+			viewPage = "/main/main.jsp";
 		}
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 		dispatcher.forward(request, response);

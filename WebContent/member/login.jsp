@@ -30,8 +30,7 @@
 			width : 230px;
 			height: 250px;
 			margin : auto;
-			margin-top: 70px;
-			
+			margin-top: 70px;		
 		}
 		table{
 			color: #2AC1BC;
@@ -55,8 +54,21 @@
 </style>
 </head>
 <body>
+	<c:if test="${not empty joinResult }">
+		<script>
+			alert('${joinResult}');
+		</script>
+	</c:if>
+	
+	<c:if test="${not empty joinErrorMsg }">
+		<script>
+			alert('${joinErrorMsg}');
+			history.back();
+		</script>
+	</c:if>
 	<div id="content_form">
 		<form action="login.do" method="post">
+		<input type="hidden" name="next" value="${param.next }">
 			<div class="content_main">
 			<table>
 				<caption>로그인</caption>
