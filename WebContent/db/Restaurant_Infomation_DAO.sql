@@ -69,26 +69,23 @@ SELECT F.* FROM RESTAURANT_INFO F, MEMBER M
   ORDER BY FGROUP DESC, FSTEP; -- 출력 기준
 SELECT * FROM
   (SELECT ROWNUM RN, A.* FROM (SELECT F.* FROM RESTAURANT_INFO F, MEMBER M
-                              WHERE F.MID=M.MID 
-                              ORDER BY FGROUP DESC, FSTEP) A)
-  WHERE RN BETWEEN 1 AND 7; -- dao에 쓸 query
+        WHERE F.MID=M.MID 
+            ORDER BY FGROUP DESC, FSTEP) 
+                WHERE RN BETWEEN 1 AND 7; -- dao에 쓸 query
 -- (2) 글갯수
 SELECT COUNT(*) FROM RESTAURANT_INFO;
 -- (3) 글쓰기(원글쓰기)
-INSERT INTO RESTAURANT_INFO (FID, MID, FTITLE, FCONTENT, FFILENAME, FGROUP, FSTEP, FINDENT, FIP)
-  VALUES (FILEBOARD_SEQ.NEXTVAL, 'son','토트넘','난 공격수', 'a.docx', 
-    FILEBOARD_SEQ.CURRVAL, 0,0, '192.168.0.31');
+INSERT INTO RESTAURANT_INFO (FID, MID, FTITLE, FCONTENT, FFILENAME, FHIT, FGROUP, FSTEP, FINDENT, FIP)
+  VALUES (RESTAURANT_INFO_SEQ.NEXTVAL, 'son', '토트넘','난 공격수', 'a.docx', 1, RESTAURANT_INFO_SEQ.CURRVAL, 0,0, '192.168.0.31');
 -- (4) hit 1회 올리기
 UPDATE RESTAURANT_INFO SET FHIT = FHIT + 1 WHERE FID=1;
--- (5) 글번호(fid)로 글전체 내용(BoardDto) 가져오기
-SELECT F.*, MNAME
-  FROM RESTAURANT_INFO F, MVC_MEMBER M WHERE F.MID=M.MID AND FID=1;
+-- (5) 글번호(fid)로 글전체 내용(RESTAURANT_INFODto) 가져오기
+SELECT * FROM RESTAURANT_INFO WHERE FID=1;
 -- (6) 글 수정하기(fid, ftitle, fcontent, ffilename, frdate(SYSDATE), fip 수정)
 UPDATE RESTAURANT_INFO SET FTITLE = '바뀐제목',
                     FCONTENT = '바뀐본문',
-                    fFILENAME = NULL,
-                    FIP = '192.168.151.10',
-                    FRDATE = SYSDATE
+                    fFILENAME = 'son.jpg',
+                    FIP = '192.168.151.10'
             WHERE FID = 2;
 -- (7) 글 삭제하기
 COMMIT;
