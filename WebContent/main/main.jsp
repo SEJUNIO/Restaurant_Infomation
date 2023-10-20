@@ -1,21 +1,24 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<c:set var="conPath" value="${pageContext.request.contextPath }"/>
 <!DOCTYPE html>
-<html lang="ko">
- <head>
-  <meta charset="UTF-8">
-  <title>ex</title>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Insert title here</title>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<script src="css/fullpage.js"></script> <!--풀페이지 연동코드-->
-<link rel="stylesheet" href="css/fullpage.css"> 
-<link rel="stylesheet" href="css/배민.css"> 
-<script>
-</script>
- </head>
- <body>
- <div class="top-fixed"> 
+<script src="${conPath}/js/fullpage.js"></script> <!--풀페이지 연동코드-->
+<link rel="stylesheet" href="${conPath}/css/fullpage.css"> 
+<link rel="stylesheet" href="${conPath}/css/배민.css"> 
+</head>
+<body>
+	<div class="top-fixed"> 
 		<div class="top"></div>
 		<ul class="sns-list">
 		<li>
-			<a href="loginForm.jsp">로그인</a>
+			<a href="${conPath}/loginView.do">로그인</a>
 		</li>
 		
 		<li>
@@ -27,22 +30,24 @@
 		</li>
 		</ul>
 </div>
-  <div id="fullpage">
+
+	<div id="fullpage">
 
 	<section class="section">
 	 <!-- first content -->
         <div class="header-content">
           <div class="header-text">
-            <div class="container"><img src="img/main_text_03@2x.png" width="440" height="298" alt="가볍게 맛있게 먹고 싶을 때"></div>     
+            <div class="container"><img src="${conPath}/img/main_text_03@2x.png" width="440" height="298" alt="가볍게 맛있게 먹고 싶을 때"></div>     
 		</div>
 	</div>
 	</section>
+	
 	<!-- 그것이 무엇이든 다~있다-->
 	<section class="section 2">
 		<div class="content">
           <div class="cont-text">
             <h2 class="con-txt1-app-cont01-text">
-			<img src="img/ctn01_text_02@2x.png" width="500" height="272" alt="그것이 무엇이든 다~ 있다"></h2>
+			<img src="${conPath}/img/ctn01_text_02@2x.png" width="500" height="272" alt="그것이 무엇이든 다~ 있다"></h2>
           </div>
           <p class="cont-desc">
             3천만 이상이 선택한 배달의민족,<br>
@@ -51,10 +56,10 @@
           </p>
           <div class="animation">
             <div class="road">
-              <img src="img/img-road@2x.png" width="231" height="453" alt="배달이">
+              <img src="${conPath}/img/img-road@2x.png" width="231" height="453" alt="배달이">
             </div>
             <div class="bike">
-              <img src="img/img-bike@2x.png" width="200" height="228" alt="배달이">
+              <img src="${conPath}/img/img-bike@2x.png" width="200" height="228" alt="배달이">
             </div>
           </div>
         </div>
@@ -64,7 +69,7 @@
 		<h2></h2>
 		<div class="content">
           <div class="cont-text">
-            <h2 class="con-txt1-app-cont02-text"><img src="img/ctn02_text_03@2x.png" width="500" height="271" alt="찾아가던 맛집을 원하는 곳에서"></h2>
+            <h2 class="con-txt1-app-cont02-text"><img src="${conPath}/img/ctn02_text_03@2x.png" width="500" height="271" alt="찾아가던 맛집을 원하는 곳에서"></h2>
           </div>
           <p class="cont-desc">
             배달이 안되던 동네 맛집까지 ~ <br>
@@ -72,7 +77,7 @@
 			<br>
             <span class="sub-desc">서울 전지역, 경기 및 광역시 일부 지역에서 서비스 이용 가능!</span>
           </p>
-          <div class="animation1"><img src="img/img-people@2x.png" width="400"  height="236" alt="사람들"></div>
+          <div class="animation1"><img src="${conPath}/img/img-people@2x.png" width="400"  height="236" alt="사람들"></div>
         </div>    
 	</section>
 	<!-- 너에게 밥을 보낸다 배민 선물하기 -->
@@ -80,7 +85,7 @@
 		<h2></h2>
 		<div class="content">
           <div class="cont-text">
-            <h2 class="con-txt1-app-cont03-text"><img src="img/ctn05_text_01@2x.png" width="500" height="271" alt="너에게 밥을 보낸다 배민선물하기"></h2>
+            <h2 class="con-txt1-app-cont03-text"><img src="${conPath}/img/ctn05_text_01@2x.png" width="500" height="271" alt="너에게 밥을 보낸다 배민선물하기"></h2>
           </div>
           <p class="cont-desc">
             지금 밥 한끼 보내주고 싶은 사람에게 선물해보세요.<br>
@@ -88,7 +93,7 @@
 			<br>
             <span class="sub-desc">* 단, 전국별미, 사전예약 제외</span>
           </p>
-          <div class="animation2"><img src="img/img-present@2x.png" width="360" height="400" alt=""></div>
+          <div class="animation2"><img src="${conPath}/img/img-present@2x.png" width="360" height="400" alt=""></div>
         </div>z
 	</section>
 	<!-- 배민 쇼핑라이브는 지금 방송중-->
@@ -97,14 +102,14 @@
 		<div class="content">
           <div class="cont-text">
             <h2 class="con-txt1-app-cont04-text">
-              <img src="img/ctn06_text_01@2x.png" width="500" height="271" alt="배민 쇼핑라이브는 지금 방송 중!">
+              <img src="${conPath}/img/ctn06_text_01@2x.png" width="500" height="271" alt="배민 쇼핑라이브는 지금 방송 중!">
             </h2>
           </div>
           <p class="cont-desc">
             궁금한 맛은 직접 물어보고, 구경하는 재미<br />
             이제 배민에서 생생하게 경험하세요!
           </p>
-          <div class="animation3"><img src="img/img_shoppinglive.png" width="413" height="668" alt=""></div>
+          <div class="animation3"><img src="${conPath}/img/img_shoppinglive.png" width="413" height="668" alt=""></div>
         </div>
 	</section>
 	<!--주문하면 바로 와요! B마트-->
@@ -112,7 +117,7 @@
 		<h2></h2>
 		 <div class="content">
           <div class="cont-text">
-            <h2 class="con-txt1-app-cont05-text"><img src="img/ctn04_text_01@2x.png" width="407" height="280"  alt="주문하면 바로 와요! B마트"></h2>
+            <h2 class="con-txt1-app-cont05-text"><img src="${conPath}/img/ctn04_text_01@2x.png" width="407" height="280"  alt="주문하면 바로 와요! B마트"></h2>
           </div>
           <p class="cont-desc">
             마트까지 가지 않아도, 기다리지 않아도<br />
@@ -121,7 +126,7 @@
           <ul class="service-noti">
             <li> 서울, 인천 및 경기 일부 지역에서 서비스 이용 가능!</li>
           </ul>
-          <div class="animation4"><img src="img/bmart_rider@2x.png" alt=""></div>
+          <div class="animation4"><img src="${conPath}/img/bmart_rider@2x.png" alt=""></div>
         </div>
 	</section>
 	<!--할인받고 결제까지 10초면 끗!-->
@@ -129,45 +134,45 @@
 		<h2></h2>
 		<div class="content">
           <div class="cont-text">
-            <h2 class="con-txt1-app-cont06-text"><img src="img/ctn03_text_02@2x (1).png" width="500" height="272" alt="할인받고 결제까지 10초면 끗!"></h2>
+            <h2 class="con-txt1-app-cont06-text"><img src="${conPath}/img/ctn03_text_02@2x (1).png" width="500" height="272" alt="할인받고 결제까지 10초면 끗!"></h2>
           </div>
           <p class="cont-desc">
             배민페이, 네이버페이 등은 물론<br>
             각종 신용카드까지 결제 가능!
           </p>
-          <div class="animation5"><img src="img/img-flag@2x.png"  width="351" height="365" alt=""></div>
+          <div class="animation5"><img src="${conPath}/img/img-flag@2x.png"  width="351" height="365" alt=""></div>
         </div>
 	</section>
 	<!--우리가 어떤 민족입니까 배달의민족-->
 	<section class="section 8">
 		<h2></h2>
 		<div class="footer-title">
-            <h2 class="txt-footer"><img src="img/txt-slogan@2x.png"  width="176" height="202" alt="우리가 어떤 민족입니까 배달의민족"></h2>
+            <h2 class="txt-footer"><img src="${conPath}/img/txt-slogan@2x.png"  width="176" height="202" alt="우리가 어떤 민족입니까 배달의민족"></h2>
           </div>
           <div class="family-link">
             <ul class="family-link-first-line">
-              <li><a href="http://www.woowahan.com" target="_blank"><img src="img/link_woowahan@2x.png" width="140" height="30"
+              <li><a href="http://www.woowahan.com" target="_blank"><img src="${conPath}/img/link_woowahan@2x.png" width="140" height="30"
                     alt="우아한형제들"></a></li>
-              <li><a href="https://ceo.baemin.com" target="_blank"><img src="img/link_ceosite@2x.png"   width="165" height="30" alt="사장님사이트"></a>
+              <li><a href="https://ceo.baemin.com" target="_blank"><img src="${conPath}/img/link_ceosite@2x.png"   width="165" height="30" alt="사장님사이트"></a>
               </li>
               <!--<li><a href="http://www.baeminriders.kr" target="_blank"><img src="img/link_baera@2x.png" alt="배민라이더스"></a></li>-->
             </ul>
             <ul class="family-link-second-line">
               <li><a href="http://store.baemin.com/shop/main/index.php?utm_source=baemin.com&utm_medium=referral"
-                  target="_blank"><img src="img/link-store@2x.png"  width="117" height="30"alt="배민문방구"></a></li>
-              <li><a href="https://baeminconnect.onelink.me/k618/c1be3f30" target="_blank"><img src="img/link-rider@2x.png"  width="117" height="30"
+                  target="_blank"><img src="${conPath}/img/link-store@2x.png"  width="117" height="30"alt="배민문방구"></a></li>
+              <li><a href="https://baeminconnect.onelink.me/k618/c1be3f30" target="_blank"><img src="${conPath}/img/link-rider@2x.png"  width="117" height="30"
                     alt="배민커넥트"></a></li>
             </ul>
           </div>
           <ul class="footer-sns-list">
             <li><a title="facebook" href="http://www.facebook.com/smartbaedal/" target="_blank"><img
-                  src="img/icon_facebook@2x.png" width="40" height="35" alt="페이스북"></a></li>
+                  src="${conPath}/img/icon_facebook@2x.png" width="40" height="35" alt="페이스북"></a></li>
             <li><a title="instagram" href="http://www.instagram.com/baemin_official/" target="_blank"><img
-                  src="img/icon_instagram@2x.png" width="40" height="35" alt="인스타그램"></a></li>
+                  src="${conPath}/img/icon_instagram@2x.png" width="40" height="35" alt="인스타그램"></a></li>
             <li><a title="naver blog" href="http://blog.naver.com/smartbaedal" target="_blank"><img
-                  src="img/icon_blog@2x.png"  width="40" height="35" alt="네이버블로그"></a></li>
+                  src="${conPath}/img/icon_blog@2x.png"  width="40" height="35" alt="네이버블로그"></a></li>
             <li><a title="youtube" href="https://www.youtube.com/user/smartbaedal2" target="_blank"><img
-                  src="img/icon_youtube@2x.png"  width="40" height="35" alt="유투브"></a></li>
+                  src="${conPath}/img/icon_youtube@2x.png"  width="40" height="35" alt="유투브"></a></li>
           </ul>
           <div class="company-info">
             <p class="address">
@@ -193,13 +198,11 @@
             </p>
           </div>
         </div>
-	</section>
-</div>
 <script>
  new fullpage("#fullpage", {
 	 licenseKey: "",
 	 sectionsColor:['#2AC1BC','#2AC1BC','#2AC1BC','#2AC1BC','#2AC1BC','#2AC1BC','#2AC1BC'], //배민색//
 });
 </script>
- </body>
+</body>
 </html>

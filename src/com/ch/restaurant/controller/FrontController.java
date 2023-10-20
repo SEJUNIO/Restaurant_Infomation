@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.ch.restaurant.service.MLoginService;
 import com.ch.restaurant.service.Service;
 @WebServlet("*.do")
 public class FrontController extends HttpServlet {
@@ -29,6 +30,13 @@ public class FrontController extends HttpServlet {
 		String viewPage = null;
 		Service service = null;
 		if(command.equals("/main.do")) {
+			viewPage = "main/main.jsp";
+		/* * * * * member요청 * * * * */
+		}else if(command.equals("/loginView.do")) { // 로그인 화면
+			viewPage = "member/login.jsp";
+		}else if(command.equals("/login.do")) { //db를 통해 로그인 확인 및 세션처리
+			service = new MLoginService();
+			service.execute(request, response);
 			viewPage = "main/main.jsp";
 		}
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
