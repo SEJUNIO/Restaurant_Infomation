@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.ch.restaurant.service.MLoginService;
+import com.ch.restaurant.service.MLogoutService;
 import com.ch.restaurant.service.MemailConfirmService;
 import com.ch.restaurant.service.MidConfirmService;
 import com.ch.restaurant.service.MjoinService;
