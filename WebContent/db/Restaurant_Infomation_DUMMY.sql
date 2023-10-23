@@ -1,6 +1,6 @@
 -- MEMBER DUMMY DATA
 INSERT INTO MEMBER (mid, mpw, mname, memail, mtel, mbirth, maddress)
-    VALUES ('aaa', '111', '박지헌', 'aaa@a.com', '010-1111-1111', '1992/06/22', '서울 마포구');
+    VALUES ('aaa', '111', '박지후', 'aaa@a.com', '010-1111-1111', '1992/06/22', '서울 마포구');
 INSERT INTO MEMBER (mID, mPw, mName, mEmail, mtel, mBirth, mAddress)
     VALUES ('gayun','1','김가연','gayun@naver.com','010-2222-2222','1972/09/09','광주 서구');
 INSERT INTO MEMBER (mID, mPw, mName, mEmail, mtel, mBirth, mAddress)
@@ -17,7 +17,18 @@ INSERT INTO MEMBER (mID, mPw, mName, mEmail, mtel, mBirth, mAddress)
     VALUES ('park','1','박진형','jin@naver.com','010-8888-8888','1983/11/05','서울 구로구');
 INSERT INTO MEMBER (mID, mPw, mName, mEmail, mtel, mBirth, mAddress)
     VALUES ('sol','1','박솔우','sol@naver.com','010-9999-9999','1984/11/05','서울 송파구');
-
+INSERT INTO MEMBER (mID, mPw, mName, mEmail, mtel, mBirth, mAddress)
+    VALUES ('sole','1','박솔웅','sol@naver.com','010-9999-9999','1984/11/05','서울 송파구');
+INSERT INTO MEMBER (mID, mPw, mName, mEmail, mtel, mBirth, mAddress)
+    VALUES ('p1','1','박지우','sol@naver.com','010-9999-9999','1984/11/05','서울 송파구');
+INSERT INTO MEMBER (mID, mPw, mName, mEmail, mtel, mBirth, mAddress)
+    VALUES ('p2','1','박지운','sol@naver.com','010-9999-9999','1984/11/05','서울 송파구');
+INSERT INTO MEMBER (mID, mPw, mName, mEmail, mtel, mBirth, mAddress)
+    VALUES ('p3','1','박시오','sol@naver.com','010-9999-9999','1984/11/05','서울 송파구');
+INSERT INTO MEMBER (mID, mPw, mName, mEmail, mtel, mBirth, mAddress)
+    VALUES ('p4','1','박시운','sol@naver.com','010-9999-9999','1984/11/05','서울 송파구');
+INSERT INTO MEMBER (mID, mPw, mName, mEmail, mtel, mBirth, mAddress)
+    VALUES ('p5','1','박시유','sol@naver.com','010-9999-9999','1984/11/05','서울 송파구');
 -- ADMIN DUMMY DATA
 INSERT INTO ADMIN (aID, aPW, aNAME) VALUES ('abc', '111', '박세준');
 

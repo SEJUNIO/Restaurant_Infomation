@@ -73,8 +73,23 @@
 	</table>
 	
 	<table>
-		<tr><th>글번호</th><th>작성자</th><th>관리자</th><th>글제목</th><th>글본문</th>
-				<th>조회수</th><th>글비밀번호</th><th>IP</th><th>작성시점</th>
+		<tr>
+			<th>글번호</th><th>writer</th><th>글제목</th><th>글본문</th>
+			<th>조회수</th><th>IP</th><th>작성시점</th>
+		</tr>
+				<c:if test="${boardList.size() eq 0 }">
+					<tr><td colspan="8">해당 페이지 글이 없습니다.</td></tr>
+				</c:if>
+				<c:forEach var="dto" items="${boardList}">
+					<tr>
+						<td>${dto.bid}</td>
+						<td>${dto.mid}</td>
+						<td>${dto.btitle}</td>
+						<td>${dto.bcontent}</td>
+						<td>${dto.bhit}</td>
+						<td>${dto.bip}</td>
+						<td>${dto.brdate}</td>
+				</c:forEach>
 	</table>
 </form>
 </body>
