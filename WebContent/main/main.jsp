@@ -75,12 +75,6 @@
 		</li>
 		</c:if>
 		
-		<c:if test="${empty member}"> <!-- 게시판전화면 -->
-		<li>
-			<a href="boardForm.jsp">회원보기</a>
-		</li>
-		</c:if>
-		
 		<c:if test="${not empty member}"> <!-- 로그아웃화면 -->
 		<li>
 			<a href="logOut.do">로그아웃</a>

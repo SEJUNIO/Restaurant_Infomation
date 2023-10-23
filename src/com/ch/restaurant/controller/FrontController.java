@@ -65,18 +65,19 @@ public class FrontController extends HttpServlet {
 			viewPage = "main/main.jsp";
 		}else if(command.equals("/modifyView.do")) { // 정보수정화면
 			viewPage = "member/modify.jsp";
-		}else if(command.equals("/modify.do")) {
+		}else if(command.equals("/modify.do")) { // 정보수정 DB처리후 세션도 수정
 			service = new MModifyService();
 			service.execute(request, response);
 			viewPage = "main/main.jsp";
-		}else if(command.equals("/allView.do")){
+		}else if(command.equals("/withdrawal.do")) { // 회원탈퇴
+			service = new MWithdrawalService();
+			service.execute(request, response);
+			viewPage = "main/main.jsp";	
+		/* * * * * admin 요청 * * * * */
+		}else if(command.equals("/allView.do")){ 
 			service = new MAllViewService();
 			service.execute(request, response);
 			viewPage = "member/mAllView.jsp";
-		}else if(command.equals("/withdrawal.do")) {
-			service = new MWithdrawalService();
-			service.execute(request, response);
-			viewPage = "main/main.jsp";
 		}
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 		dispatcher.forward(request, response);
