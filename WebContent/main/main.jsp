@@ -71,7 +71,13 @@
 		
 		<c:if test="${not empty member}"> <!-- 회원가입후화면 -->
 		<li>
-			<a href="${conPath}/withDrawal.do">게시판</a>
+			<a href="${conPath}/boardList.do">게시판</a>
+		</li>
+		</c:if>
+		
+		<c:if test="${empty member}"> <!-- 회원가입전화면 -->
+		<li>
+			<a href="${conPath}/adminLoginView.do">관리자</a>
 		</li>
 		</c:if>
 		

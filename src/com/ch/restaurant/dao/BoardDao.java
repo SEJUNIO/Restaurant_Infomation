@@ -30,7 +30,52 @@ public class BoardDao {
 			} catch (NamingException e) {
 				System.out.println(e.getMessage());
 	}
-}
+}		
+		// 1. 글목록(startRow부터 endRow)
+		public ArrayList<BoardDto> listRestaurantBoard(int startRow, int endRow){
+			ArrayList<BoardDto> dtos = new ArrayList<BoardDto>();
+			Connection        conn  = null;
+			PreparedStatement pstmt = null;
+			ResultSet         rs    = null;
+			String sql = "SELECT * FROM" + 
+					"  (SELECT ROWNUM RN, B.* FROM (SELECT B.* FROM BOARD B, MEMBER M" + 
+					"  WHERE B.MID=M.MID" + 
+					"  ORDER BY BGROUP DESC, BSTEP) B)" + 
+					"  WHERE RN BETWEEN ? AND ?";
+			try {
+				conn = ds.getConnection();
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setInt(1, startRow);
+				pstmt.setInt(2, endRow);
+				rs = pstmt.executeQuery();
+				while(rs.next()) {
+					 int bid = rs.getInt("bid");
+					 String mid = rs.getString("mid");
+					 String aid = rs.getString("aid");
+					 String btitle = rs.getString("btitle");
+					 String bcontent = rs.getString("bcontent");
+					 int bhit = rs.getInt("bhit");
+					 String bpw = rs.getString("bpw");
+					 int bgroup = rs.getInt("bgroup");
+					 int bstep = rs.getInt("bstep");
+					 int bindent = rs.getInt("bindent");
+					 String bip = rs.getString("bip");
+					 Date brdate = rs.getDate("brdate");
+					 dtos.add(new BoardDto(bid, mid, aid, btitle, bcontent, bhit, bpw, bgroup, bstep, bindent, bip, brdate));
+				}
+			} catch (SQLException e) {
+				System.out.println(e.getMessage());
+			} finally {
+				try {
+					if(rs   != null) rs.close();
+					if(pstmt!= null) pstmt.close();
+					if(conn != null) conn.close();
+				} catch (SQLException e) {
+					System.out.println(e.getMessage());
+				}
+			}
+			return dtos;
+		}
 		//(1) WRITER 타이틀에 사용자가 썼으면 사용자이름, 관리자가 썼으면 관리자라고 출력
 		public ArrayList<BoardDto> writerBoard(){
 			ArrayList<BoardDto> dtos = new ArrayList<BoardDto>();

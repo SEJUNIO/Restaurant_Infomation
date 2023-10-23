@@ -9,6 +9,8 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.ch.restaurant.service.ALoginService;
+import com.ch.restaurant.service.BoardListService;
 import com.ch.restaurant.service.MAllViewService;
 import com.ch.restaurant.service.MLoginService;
 import com.ch.restaurant.service.MLogoutService;
@@ -78,6 +80,17 @@ public class FrontController extends HttpServlet {
 			service = new MAllViewService();
 			service.execute(request, response);
 			viewPage = "member/mAllView.jsp";
+		}else if(command.equals("/adminLoginView.do")) {
+			viewPage = "admin/adminLogin.jsp";
+		}else if(command.equals("/adminLogin.do")) {
+			service = new ALoginService();
+			service.execute(request, response);
+			viewPage = "allView.do";
+		/* * * * * 게시판  요청 * * * * */
+		}else if(command.equals("/boardList.do")) {
+			service = new BoardListService();
+			service.execute(request, response);
+			viewPage = "board/boardList.jsp";
 		}
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 		dispatcher.forward(request, response);
