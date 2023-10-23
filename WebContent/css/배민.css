@@ -26,7 +26,6 @@ p#icon-scroll{
     left:50%;
 	bottom:0;
     z-index:100;
-	-background-color:red;
 }
 .top-fixed {   /*로고 및 sns 공간*/
     width: 100%;
@@ -217,18 +216,4 @@ ul.family-link-second-line{
 	right:300px;
 	width:249px;
 	height:50px;
-}
-/*여기부터 확인*/
-.link-mail a{
-	text-decoration:none;
-	color: #333333;    
-    background-size: 100% 4px;
-	background: url("img/link-line_01@2x.png") bottom no-repeat;
-}
-.link-business-info a{
-	background-color:red;
-	background: url("img/link-line_01@2x.png") bottom no-repeat;
-	text-decoration:none;
-	color: #333333;    
-    background-size: 100% 4px;
 }

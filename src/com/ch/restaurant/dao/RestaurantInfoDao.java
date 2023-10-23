@@ -17,6 +17,10 @@ public class RestaurantInfoDao {
 	public static final int SUCCESS = 1;
 	private final int FAIL = 0;
 	private DataSource ds;
+	private static RestaurantInfoDao Instance = new RestaurantInfoDao();
+	public static RestaurantInfoDao getInstance() {
+		return Instance;
+	}
 	public RestaurantInfoDao() {
 		try {
 			Context ctx = new InitialContext();

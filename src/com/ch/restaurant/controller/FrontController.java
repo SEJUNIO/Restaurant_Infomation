@@ -9,8 +9,11 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.ch.restaurant.service.MAllViewService;
 import com.ch.restaurant.service.MLoginService;
 import com.ch.restaurant.service.MLogoutService;
+import com.ch.restaurant.service.MModifyService;
+import com.ch.restaurant.service.MWithdrawalService;
 import com.ch.restaurant.service.MemailConfirmService;
 import com.ch.restaurant.service.MidConfirmService;
 import com.ch.restaurant.service.MjoinService;
@@ -44,22 +47,36 @@ public class FrontController extends HttpServlet {
 			viewPage = "main/main.jsp";
 		}else if(command.equals("/joinView.do")) { //회원가입 화면
 			viewPage = "member/join.jsp";
-		}else if(command.equals("/midConfirm.do")) {
+		}else if(command.equals("/midConfirm.do")) { // 아이디 중복확인
 			service = new MidConfirmService();
 			service.execute(request, response);
 			viewPage = "member/midConfirm.jsp";
-		}else if(command.equals("/memailConfirm.do")) {
+		}else if(command.equals("/memailConfirm.do")) { // 이메일 중복확인
 			service = new MemailConfirmService();
 			service.execute(request, response);
-			viewPage = "member/memailConfirm.jsp";
-		}else if(command.equals("/join.do")) {
+			viewPage = "member/memailConfirm.jsp"; 
+		}else if(command.equals("/join.do")) { // 회원가입 db처리후 로그인으로 가고 id엔 가입한 id출력
 			service = new MjoinService();
 			service.execute(request, response);
 			viewPage = "loginView.do";
-		}else if(command.equals("/logOut.do")){
+		}else if(command.equals("/logOut.do")){ // 로그아웃 - 세션 날리기
 			service = new MLogoutService();
 			service.execute(request, response);
-			viewPage = "/main/main.jsp";
+			viewPage = "main/main.jsp";
+		}else if(command.equals("/modifyView.do")) { // 정보수정화면
+			viewPage = "member/modify.jsp";
+		}else if(command.equals("/modify.do")) {
+			service = new MModifyService();
+			service.execute(request, response);
+			viewPage = "main/main.jsp";
+		}else if(command.equals("/allView.do")){
+			service = new MAllViewService();
+			service.execute(request, response);
+			viewPage = "member/mAllView.jsp";
+		}else if(command.equals("/withdrawal.do")) {
+			service = new MWithdrawalService();
+			service.execute(request, response);
+			viewPage = "main/main.jsp";
 		}
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 		dispatcher.forward(request, response);

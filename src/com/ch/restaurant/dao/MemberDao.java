@@ -25,7 +25,6 @@ public class MemberDao {
 	public static MemberDao getInstance() {
 		return Instance;
 	}
-	
 	private MemberDao() {
 		//ds에 커넥션풀에 있는 ds를 할당
 		try {

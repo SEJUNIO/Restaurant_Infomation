@@ -45,6 +45,12 @@
 		<div class="top"></div>
 		<ul class="sns-list">
 		
+		<c:if test="${not empty member}"> <!-- 로그인전화면 --> <!-- 로그인후 회원이름 출력 -->
+		<li>
+			<a href="${conPath}/main.do">${member.mname}님</a>
+		</li>
+		</c:if>
+		
 		<c:if test="${empty member}"> <!-- 로그인전화면 -->
 		<li>
 			<a href="${conPath}/loginView.do">로그인</a>
@@ -65,13 +71,13 @@
 		
 		<c:if test="${not empty member}"> <!-- 회원가입후화면 -->
 		<li>
-			<a href="${conPath}/withDrawal.do">회원탈퇴</a>
+			<a href="${conPath}/withDrawal.do">게시판</a>
 		</li>
 		</c:if>
 		
 		<c:if test="${empty member}"> <!-- 게시판전화면 -->
 		<li>
-			<a href="boardForm.jsp">게시판</a>
+			<a href="boardForm.jsp">회원보기</a>
 		</li>
 		</c:if>
 		
