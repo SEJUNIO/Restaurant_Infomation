@@ -77,7 +77,7 @@
 	</c:if>
 		<div id="content_form">
 		<table>
-			<tr><td onclick="location='${conPath}/main.do'">모든회원</td></tr>
+			<tr><td onclick="location='${conPath}/noticeWriteView.do'">관리자 글쓰기</td></tr>
 		</table>
 		
 		<table>

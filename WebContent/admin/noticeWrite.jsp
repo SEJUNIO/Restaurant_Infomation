@@ -6,8 +6,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="UTF-8">
-	<title>Insert title here</title>
+<meta charset="UTF-8">
+<title>Insert title here</title>
 			<style>
 		body{
 		background-image: url(img/an-overhead-view-of-cherry-tomatoes-mushroom-carrot-broccoli-garlic-and-bell-pepper-on-wooden-table-with-copy-space-for-writing-the-text.jpg);
@@ -16,7 +16,7 @@
 		}
 		#content_form{
 		position : relative;
-		width: 1200px;
+		width: 600px;
 		height: 600px;
 		margin: auto;
 		border-radius : 15px;
@@ -62,35 +62,31 @@
 		}	
 		a{
 		text-decoration : none;	
-		color: white;
+		color: #2AC1BC;
 		}
 </style>
 </head>
 <body>
-	<form action="${conPath}/boardList.do" method="post">
-	<table>
-		<tr><td onclick="location='${conPath}/writeView.do'">글쓰기</td></tr>	
-	</table>
-	
-	<table>
-		<tr>
-			<th>글번호</th><th>writer</th><th>글제목</th><th>글본문</th>
-			<th>조회수</th><th>IP</th><th>작성시점</th>
-		</tr>
-				<c:if test="${boardList.size() eq 0 }">
-					<tr><td colspan="8">해당 페이지 글이 없습니다.</td></tr>
-				</c:if>
-				<c:forEach var="dto" items="${boardList}">
-					<tr>
-						<td>${dto.bid}</td>
-						<td>${dto.mid}</td>
-						<td>${dto.btitle}</td>
-						<td>${dto.bcontent}</td>
-						<td>${dto.bhit}</td>
-						<td>${dto.bip}</td>
-						<td>${dto.brdate}</td>
-				</c:forEach>
-	</table>
-</form>
+	<div id="content_form">
+		<form action="${conPath}/noticeWrite.do" method="post">
+			<table>
+				<tr>
+					<td>관리자</td><td><input type="text" name="aid" value="${admin.aid}" 	required="required"></td>
+				</tr>
+				<tr>
+					<td>제목</td><td><input type="text" name="ntitle" 	required="required"></td>
+				</tr>
+				<tr>
+					<td>본문</td><td><textarea name="ncontent" rows="5"></textarea></td>
+				</tr>
+
+				<tr><td colspan="2">
+							<input type="submit" value="글쓰기" class="btn" >
+							<input type="reset" value="취소" class="btn">
+							<input type="button" value="목록" class="btn"
+								onclick="location.href='${conPath}/noticeList.do'">
+			</table>
+		</form>
+	</div>
 </body>
 </html>

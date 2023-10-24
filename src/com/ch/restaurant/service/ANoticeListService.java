@@ -2,28 +2,27 @@ package com.ch.restaurant.service;
 import java.util.ArrayList;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-import com.ch.restaurant.dao.BoardDao;
-import com.ch.restaurant.dto.BoardDto;
-public class BoardListService implements Service {
+import com.ch.restaurant.dao.NoticeDao;
+import com.ch.restaurant.dto.NoticeDto;
+public class ANoticeListService implements Service {
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		String pageNum = request.getParameter("pageNum");
 		if(pageNum==null) {
-			if(request.getAttribute("pageNum")!=null) { // 글 수정이나 답변글처리시 mRequest를 사용하여서 request에 set함
+			if(request.getAttribute("pageNum")!=null) { 
 				pageNum = (String)request.getAttribute("pageNum");
 			}else {
 				pageNum = "1";
 			}
 		}
 		int currentPage = Integer.parseInt(pageNum);
-		final int PAGESIZE=10, BLOCKSIZE=10;
+		final int PAGESIZE=10, BLOCKSIZE=5;
 		int startRow = (currentPage-1) * PAGESIZE +1;
 		int endRow   = startRow + PAGESIZE -1;
-		BoardDao boardDao = BoardDao.getInstance();
-		ArrayList<BoardDto> boardList = boardDao.listRestaurantBoard(startRow, endRow);
-		request.setAttribute("boardList", boardList);
-		int totCnt = boardDao.getBoardTotCnt(); // 글갯수
+		NoticeDao nDao = NoticeDao.getInstance();
+		ArrayList<NoticeDto> noticeList = nDao.listNotice(startRow, endRow);
+		request.setAttribute("noticeList", noticeList);
+		int totCnt = nDao.getNoticeTotCnt(); // 글갯수
 		int pageCnt = (int)Math.ceil((double)totCnt/PAGESIZE);//페이지갯수
 		int startPage = ((currentPage-1)/BLOCKSIZE)*BLOCKSIZE+1;
 		int endPage = startPage + BLOCKSIZE - 1;

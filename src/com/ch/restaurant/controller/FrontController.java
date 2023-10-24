@@ -10,7 +10,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.ch.restaurant.service.ALoginService;
-import com.ch.restaurant.service.BoardListService;
+import com.ch.restaurant.service.ANoticeContentService;
+import com.ch.restaurant.service.ANoticeListService;
+import com.ch.restaurant.service.AnoticeWriteService;
 import com.ch.restaurant.service.MAllViewService;
 import com.ch.restaurant.service.MLoginService;
 import com.ch.restaurant.service.MLogoutService;
@@ -75,7 +77,7 @@ public class FrontController extends HttpServlet {
 			service = new MWithdrawalService();
 			service.execute(request, response);
 			viewPage = "main/main.jsp";	
-		/* * * * * admin 요청 * * * * */
+			/* * * * * admin  요청 * * * * */
 		}else if(command.equals("/allView.do")){ 
 			service = new MAllViewService();
 			service.execute(request, response);
@@ -86,14 +88,22 @@ public class FrontController extends HttpServlet {
 			service = new ALoginService();
 			service.execute(request, response);
 			viewPage = "allView.do";
-		/* * * * * 게시판  요청 * * * * */
-		}else if(command.equals("/boardList.do")) {
-			service = new BoardListService();
+		}else if(command.equals("/noticeList.do")) {
+			service = new ANoticeListService();
 			service.execute(request, response);
-			viewPage = "board/boardList.jsp";
+			viewPage = "admin/noticeList.jsp";
+		}else if(command.equals("/noticeWriteView.do")) {  // 공지사항 글 작성
+			viewPage = "admin/noticeWrite.jsp";
+		}else if(command.equals("/noticeWrite.do")) {
+			service = new AnoticeWriteService();
+			service.execute(request, response);
+			viewPage = "noticeList.do";				
+		}else if(command.equals("/noticeContent.do")) {
+			service = new ANoticeContentService();
+			service.execute(request, response);
+			viewPage = "admin/noticeContent.jsp";
 		}
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 		dispatcher.forward(request, response);
-	}
-
+		}	
 }

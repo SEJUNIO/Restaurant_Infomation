@@ -36,51 +36,54 @@ SELECT * FROM ADMIN WHERE AID='abc';
 
 -- BoardDao에 들어갈 쿼리
 -- (1) 글목록(startRow~endRow)
-SELECT B.* FROM BOARD B, MEMBER M
-  WHERE B.MID=M.MID 
-  ORDER BY BGROUP DESC, BSTEP; -- 출력 기준
+SELECT N.* FROM NOTICE N, ADMIN A
+  WHERE N.AID=A.AID 
+  ORDER BY NGROUP DESC, NSTEP; -- 출력 기준
 SELECT * FROM
-  (SELECT ROWNUM RN, B.* FROM (SELECT B.* FROM BOARD B, MEMBER M
-        WHERE B.MID=M.MID 
-            ORDER BY BGROUP DESC, BSTEP) 
-                WHERE RN BETWEEN 1 AND 3;  -- dao에 쓸 query
+  (SELECT ROWNUM RN, N.* FROM (SELECT N.* FROM NOTICE N, ADMIN A
+                              WHERE N.AID=A.AID 
+                              ORDER BY NGROUP DESC, NSTEP) N)
+  WHERE RN BETWEEN 1 AND 7; -- dao에 쓸 query
+-- SELECT * FROM
+--  (SELECT BID, (SELECT MNAME FROM MEMBER WHERE BOARD.MID=MID)||
+--  (SELECT '-관리자-' FROM ADMIN WHERE BOARD.AID=AID) WRITER, BTITLE, BCONTENT, BHIT, BIP, BRDATE 
+--  FROM BOARD ORDER BY BRDATE DESC);
 -- (1-1) WRITER 타이틀에 사용자가 썼으면 사용자이름, 관리자가 썼으면 관리자라고 출력
 SELECT BID, (SELECT MNAME FROM MEMBER WHERE BOARD.MID=MID)||
-  (SELECT '-관리자-' FROM ADMIN WHERE BOARD.AID=AID) WRITER, BTITLE, BCONTENT, BHIT, BRDATE 
+  (SELECT 'writer' FROM ADMIN WHERE BOARD.AID=AID) WRITER, BTITLE, BCONTENT, BHIT, BRDATE 
   FROM BOARD ORDER BY BRDATE DESC;
 -- (2) 글갯수
-SELECT COUNT(*) CNT FROM BOARD;
+SELECT COUNT(*) CNT FROM NOTICE;
 -- (3) 글쓰기(원글쓰기)
-INSERT INTO BOARD(BID, MID, AID, BTITLE, BCONTENT, BPW, BGROUP, BSTEP, BINDENT, BIP)
-    VALUES (10, 'aaa', 'abc', '추가제목', '추가본문', '1', 0, 0, 0, '192.168.1.1'); 
+INSERT INTO NOTICE(NID, AID, NTITLE, NCONTENT, NHIT, NGROUP, NSTEP, NINDENT, NIP)
+    VALUES (NOTICE_SEQ.NEXTVAL, 'abc', '추가제목', '추가본문', '1', NOTICE_SEQ.CURRVAL, 0, 0, '192.168.1.1'); 
 -- (4) hit 1회 올리기
-UPDATE BOARD SET BHIT = BHIT + 1 WHERE BID=1;
+UPDATE NOTICE SET NHIT = NHIT + 1 WHERE NID=1;
 -- (5) 글번호(bid)로 글전체 내용(BoardDto)가져오기
-SELECT B.*
-  FROM BOARD B, MEMBER M WHERE B.MID=M.MID AND BID=1;
--- (6) 글 수정하기(bid, btitle, bcontent, bip)수정
-UPDATE BOARD SET BTITLE = '바뀐제목',
-                    BCONTENT = '바뀐본문',
-                    BIP = '192.168.151.10',
-                    BRDATE = SYSDATE
-            WHERE BID = 2;
+SELECT N.*FROM NOTICE N, ADMIN A WHERE N.AID=A.AID AND NID=1;
+-- (6) 글 수정하기(bid, btitle, bcontent, bip)수
+UPDATE NOTICE SET NTITLE = '바뀐제목',
+                    NCONTENT = '바뀐본문',
+                    NIP = '192.168.151.10',
+                    NRDATE = SYSDATE
+            WHERE NID = 2;
 -- (7) 글 삭제하기
 -- 글 삭제시 해당 글 하나 삭제하기(삭제하려는 글의 mid필요, 3번글 삭제)
-    DELETE FROM BOARD WHERE bID=3;
+    DELETE FROM NOTICE WHERE NID=3;
 -- (10) 회원탈퇴시 탈퇴하는 회원(mid)이 쓴글 모두 삭제하기
 DELETE FROM BOARD WHERE MID='son';
 ROLLBACK;
 
 -- RESTAURANT_InfoDao에 들어갈 쿼리
 -- (1) 글목록(startRow~endRow)
-SELECT F.* FROM RESTAURANT_INFO F, MEMBER M
+SELECT F.*, MNAME FROM RESTAURANT_INFO F, MEMBER M
   WHERE F.MID=M.MID 
   ORDER BY FGROUP DESC, FSTEP; -- 출력 기준
 SELECT * FROM
-  (SELECT ROWNUM RN, F.* FROM (SELECT F.* FROM RESTAURANT_INFO F, MEMBER M
-        WHERE F.MID=M.MID 
-            ORDER BY FGROUP DESC, FSTEP) 
-                WHERE RN BETWEEN 1 AND 7; -- dao에 쓸 query
+  (SELECT ROWNUM RN, B.* FROM (SELECT F.* FROM RESTAURANT_INFO F, MEMBER M
+                              WHERE F.MID=M.MID 
+                              ORDER BY FGROUP DESC, FSTEP) B)
+  WHERE RN BETWEEN 1 AND 7; -- dao에 쓸 query
 -- (2) 글갯수
 SELECT COUNT(*) FROM RESTAURANT_INFO;
 -- (3) 글쓰기(원글쓰기)

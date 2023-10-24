@@ -71,7 +71,7 @@
 		
 		<c:if test="${not empty member}"> <!-- 회원가입후화면 -->
 		<li>
-			<a href="${conPath}/boardList.do">게시판</a>
+			<a href="${conPath}/noticeList.do">공지사항</a>
 		</li>
 		</c:if>
 		
