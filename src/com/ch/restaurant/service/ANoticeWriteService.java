@@ -5,7 +5,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.ch.restaurant.dao.NoticeDao;
 import com.ch.restaurant.dto.NoticeDto;
 
-public class AnoticeWriteService implements Service {
+public class ANoticeWriteService implements Service {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {

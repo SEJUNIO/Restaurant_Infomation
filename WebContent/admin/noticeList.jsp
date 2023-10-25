@@ -8,8 +8,9 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Insert title here</title>
+	<link href="${conPath}/css/Restaurant_info.css" rel="stylesheet">
 	<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
-			<style>
+<style>
 		body{
 		background-image: url(img/an-overhead-view-of-cherry-tomatoes-mushroom-carrot-broccoli-garlic-and-bell-pepper-on-wooden-table-with-copy-space-for-writing-the-text.jpg);
 		background-size: cover;
@@ -27,44 +28,41 @@
 		margin-top : 35px;
 		line-height: 30px;
 		}
-		.content_main{
-			width : 330px;
-			height: 450px;
-			margin : auto;
-			margin-top: 70px;		
-		}
-		table{
-			color: white;
-			font-size : 1.2em;
-			font-weight : bold;
-			margin: 10px auto;
-			width:70%;
-			padding-top:10px;
-		}
-		table td{
-			text-align : center;
-		}
-		table tr { 
-			background-color: #2AC1BC; 
-			height: 40px;
-			}
-		table tr:hover { 
-			background-color: orange;
-			cursor: pointer;
-			}
-		.btn{
+	table{
+		color: white;
+		font-size : 1.2em;
+		font-weight : bold;
+		margin: 10px auto;
+		width:80%;
+		padding-top:10px;
+	}
+	table td{
+		text-align : center;
+	}
+	table tr { 
+		background-color: #2AC1BC; 
+		height: 40px;
+	}
+	table tr:hover { 
+		background-color: orange;
+		cursor: pointer;
+	}
+	.btn{
 		background-color : #2AC1BC;
-		width: 240px;
+		width: 200px;
 		height:30px;
 		margin : 5px;
 		color : white;
-		border : 1px solid white;
+		border : 2px solid white;
 		border-radius : 5px;
-		}	
-		a{
+	}	
+	a{
 		text-decoration : none;	
 		color: #2AC1BC;
-		}
+	}
+	.td1{
+		text-align : left;
+	}
 </style>
 	<script>
 		$(document).ready(function(){
@@ -87,7 +85,7 @@
 	<table>
 		<tr>
 			<th>글번호</th><th>관리자</th><th>글제목</th><th>글본문</th>
-			<th>조회수</th><th>IP</th><th>작성시점</th>
+			<th>조회수</th><th>작성시점</th>
 		</tr>
 				<c:if test="${noticeList.size() eq 0 }">
 					<tr><td colspan="8">해당 페이지 글이 없습니다.</td></tr>
@@ -97,9 +95,8 @@
 						<td>${notice.nid}</td>
 						<td>${notice.aid}</td>
 						<td>${notice.ntitle}</td>
-						<td>${notice.ncontent}</td>
+						<td class="td1">${notice.ncontent}</td>
 						<td>${notice.nhit}</td>
-						<td>${notice.nip}</td>
 						<td>${notice.nrdate}</td>
 				</c:forEach>
 	</table>

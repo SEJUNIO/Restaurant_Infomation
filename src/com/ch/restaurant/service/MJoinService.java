@@ -9,7 +9,7 @@ import javax.servlet.http.HttpSession;
 import com.ch.restaurant.dao.MemberDao;
 import com.ch.restaurant.dto.MemberDto;
 
-public class MjoinService implements Service {
+public class MJoinService implements Service {
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {

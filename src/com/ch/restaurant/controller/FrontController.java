@@ -12,7 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.ch.restaurant.service.ALoginService;
 import com.ch.restaurant.service.ANoticeContentService;
 import com.ch.restaurant.service.ANoticeListService;
-import com.ch.restaurant.service.AnoticeWriteService;
+import com.ch.restaurant.service.ANoticeWriteService;
 import com.ch.restaurant.service.MAllViewService;
 import com.ch.restaurant.service.MLoginService;
 import com.ch.restaurant.service.MLogoutService;
@@ -20,7 +20,7 @@ import com.ch.restaurant.service.MModifyService;
 import com.ch.restaurant.service.MWithdrawalService;
 import com.ch.restaurant.service.MemailConfirmService;
 import com.ch.restaurant.service.MidConfirmService;
-import com.ch.restaurant.service.MjoinService;
+import com.ch.restaurant.service.MJoinService;
 import com.ch.restaurant.service.Service;
 @WebServlet("*.do")
 public class FrontController extends HttpServlet {
@@ -60,7 +60,7 @@ public class FrontController extends HttpServlet {
 			service.execute(request, response);
 			viewPage = "member/memailConfirm.jsp"; 
 		}else if(command.equals("/join.do")) { // 회원가입 db처리후 로그인으로 가고 id엔 가입한 id출력
-			service = new MjoinService();
+			service = new MJoinService();
 			service.execute(request, response);
 			viewPage = "loginView.do";
 		}else if(command.equals("/logOut.do")){ // 로그아웃 - 세션 날리기
@@ -95,13 +95,17 @@ public class FrontController extends HttpServlet {
 		}else if(command.equals("/noticeWriteView.do")) {  // 공지사항 글 작성
 			viewPage = "admin/noticeWrite.jsp";
 		}else if(command.equals("/noticeWrite.do")) {
-			service = new AnoticeWriteService();
+			service = new ANoticeWriteService();
 			service.execute(request, response);
 			viewPage = "noticeList.do";				
 		}else if(command.equals("/noticeContent.do")) {
 			service = new ANoticeContentService();
 			service.execute(request, response);
 			viewPage = "admin/noticeContent.jsp";
+		}else if(command.equals("/noticeModifyView.do")) {
+			service = new noticeModifyViewService();
+			service.execute(request, response);
+			viewPage = "admin/noticeModify.jsp";
 		}
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 		dispatcher.forward(request, response);
