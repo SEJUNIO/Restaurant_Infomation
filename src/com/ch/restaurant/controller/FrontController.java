@@ -11,8 +11,11 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.ch.restaurant.service.ALoginService;
 import com.ch.restaurant.service.ANoticeContentService;
+import com.ch.restaurant.service.ANoticeDeleteService;
 import com.ch.restaurant.service.ANoticeListService;
-import com.ch.restaurant.service.ANoticeWriteService;
+import com.ch.restaurant.service.ANoticeModifyService;
+import com.ch.restaurant.service.ANoticeModifyViewService;
+import com.ch.restaurant.service.AnoticeWriteService;
 import com.ch.restaurant.service.MAllViewService;
 import com.ch.restaurant.service.MLoginService;
 import com.ch.restaurant.service.MLogoutService;
@@ -20,7 +23,7 @@ import com.ch.restaurant.service.MModifyService;
 import com.ch.restaurant.service.MWithdrawalService;
 import com.ch.restaurant.service.MemailConfirmService;
 import com.ch.restaurant.service.MidConfirmService;
-import com.ch.restaurant.service.MJoinService;
+import com.ch.restaurant.service.MjoinService;
 import com.ch.restaurant.service.Service;
 @WebServlet("*.do")
 public class FrontController extends HttpServlet {
@@ -60,7 +63,7 @@ public class FrontController extends HttpServlet {
 			service.execute(request, response);
 			viewPage = "member/memailConfirm.jsp"; 
 		}else if(command.equals("/join.do")) { // 회원가입 db처리후 로그인으로 가고 id엔 가입한 id출력
-			service = new MJoinService();
+			service = new MjoinService();
 			service.execute(request, response);
 			viewPage = "loginView.do";
 		}else if(command.equals("/logOut.do")){ // 로그아웃 - 세션 날리기
@@ -95,7 +98,7 @@ public class FrontController extends HttpServlet {
 		}else if(command.equals("/noticeWriteView.do")) {  // 공지사항 글 작성
 			viewPage = "admin/noticeWrite.jsp";
 		}else if(command.equals("/noticeWrite.do")) {
-			service = new ANoticeWriteService();
+			service = new AnoticeWriteService();
 			service.execute(request, response);
 			viewPage = "noticeList.do";				
 		}else if(command.equals("/noticeContent.do")) {
@@ -103,9 +106,17 @@ public class FrontController extends HttpServlet {
 			service.execute(request, response);
 			viewPage = "admin/noticeContent.jsp";
 		}else if(command.equals("/noticeModifyView.do")) {
-			service = new noticeModifyViewService();
+			service = new ANoticeModifyViewService();
 			service.execute(request, response);
 			viewPage = "admin/noticeModify.jsp";
+		}else if(command.equals("/noticeModify.do")) {
+			service = new ANoticeModifyService();
+			service.execute(request, response);
+			viewPage = "noticeList.do";
+		}else if(command.equals("/noticeDelete.do")) {
+			service = new ANoticeDeleteService();
+			service.execute(request, response);
+			viewPage = "noticeList.do";
 		}
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 		dispatcher.forward(request, response);

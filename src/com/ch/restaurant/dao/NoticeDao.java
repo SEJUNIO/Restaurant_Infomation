@@ -196,8 +196,7 @@ public class NoticeDao {
 			PreparedStatement pstmt = null;
 			String sql = "UPDATE NOTICE SET NTITLE = ?," + 
 					"                    NCONTENT = ?," + 
-					"                    NIP = ?," + 
-					"                    NRDATE = SYSDATE" + 
+					"					 NIP = ?" + 
 					"            WHERE NID = ?";
 			try {
 				conn = ds.getConnection();
@@ -205,12 +204,11 @@ public class NoticeDao {
 				pstmt.setString(1, dto.getNtitle());
 				pstmt.setString(2, dto.getNcontent());
 				pstmt.setString(3, dto.getNip());
-				pstmt.setDate(4, dto.getNrdate());
-				pstmt.setInt(5, dto.getNid());
+				pstmt.setInt(4, dto.getNid());
 				result = pstmt.executeUpdate();
 				System.out.println(result == SUCCESS ? "글수정 성공":"글번호(nid)오류");
 			} catch (SQLException e) {
-				System.out.println(e.getMessage() + "글 수정 실패");
+				System.out.println(e.getMessage() + "글 수정 실패----");
 			} finally {
 				try {
 					if(pstmt != null) pstmt.close();

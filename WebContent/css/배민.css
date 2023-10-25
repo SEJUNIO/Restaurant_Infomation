@@ -87,6 +87,11 @@ section:nth-child(1){
 	background-size:cover;
 	background-position: 50% 50%;
 }
+section:nth-child(2){
+	background:url("../img/food.jpg");
+	background-size:cover;
+	background-position: 50% 50%;
+}
 	/*전체 div*/
 .content{
 	padding:0px 50px;

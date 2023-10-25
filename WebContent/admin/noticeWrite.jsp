@@ -85,7 +85,7 @@
 			<table>
 				<caption>글쓰기</caption>
 				<tr>
-					<th>관리자</th><th><input type="text" name="aid" id="aid" value="${admin.aid}" 	required="required"></th>
+					<th>관리자</th><th><input type="text" name="aid" id="aid" value="${admin.aid}" 	required="required" readonly="readonly"></th>
 				</tr>
 				<tr>
 					<th>제목</th><th><input type="text" name="ntitle" id="ntitle" 	required="required"></th>

@@ -60,13 +60,13 @@ INSERT INTO NOTICE(NID, AID, NTITLE, NCONTENT, NHIT, NGROUP, NSTEP, NINDENT, NIP
 -- (4) hit 1회 올리기
 UPDATE NOTICE SET NHIT = NHIT + 1 WHERE NID=1;
 -- (5) 글번호(bid)로 글전체 내용(BoardDto)가져오기
-SELECT N.*FROM NOTICE N, ADMIN A WHERE N.AID=A.AID AND NID=1;
+SELECT N.* FROM NOTICE N WHERE NID=1;
 -- (6) 글 수정하기(bid, btitle, bcontent, bip)수
-UPDATE NOTICE SET NTITLE = '바뀐제목',
-                    NCONTENT = '바뀐본문',
-                    NIP = '192.168.151.10',
-                    NRDATE = SYSDATE
-            WHERE NID = 2;
+UPDATE NOTICE SET  NTITLE = '바뀐제목1',
+                    NCONTENT = '바뀐본문1',
+                    NIP = '192.168.1.12' 
+            WHERE NID = 6;
+COMMIT;
 -- (7) 글 삭제하기
 -- 글 삭제시 해당 글 하나 삭제하기(삭제하려는 글의 mid필요, 3번글 삭제)
     DELETE FROM NOTICE WHERE NID=3;

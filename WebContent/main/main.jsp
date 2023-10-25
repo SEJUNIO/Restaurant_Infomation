@@ -106,7 +106,7 @@
 		<div class="content">
           <div class="cont-text">
             <h2 class="con-txt1-app-cont01-text">
-			<img src="${conPath}/img/ctn01_text_02@2x.png" width="500" height="272" alt="그것이 무엇이든 다~ 있다"></h2>
+			<img src="${conPath}/img/image.png" width="500" height="272" alt="그것이 무엇이든 다~ 있다"></h2>
           </div>
           <p class="cont-desc">
             3천만 이상이 선택한 배달의민족,<br>
@@ -153,114 +153,13 @@
             <span class="sub-desc">* 단, 전국별미, 사전예약 제외</span>
           </p>
           <div class="animation2"><img src="${conPath}/img/img-present@2x.png" width="360" height="400" alt=""></div>
-        </div>z
-	</section>
-	<!-- 배민 쇼핑라이브는 지금 방송중-->
-	<section class="section 5">
-		<h2></h2>
-		<div class="content">
-          <div class="cont-text">
-            <h2 class="con-txt1-app-cont04-text">
-              <img src="${conPath}/img/ctn06_text_01@2x.png" width="500" height="271" alt="배민 쇼핑라이브는 지금 방송 중!">
-            </h2>
-          </div>
-          <p class="cont-desc">
-            궁금한 맛은 직접 물어보고, 구경하는 재미<br />
-            이제 배민에서 생생하게 경험하세요!
-          </p>
-          <div class="animation3"><img src="${conPath}/img/img_shoppinglive.png" width="413" height="668" alt=""></div>
         </div>
 	</section>
-	<!--주문하면 바로 와요! B마트-->
-	<section class="section 6">
-		<h2></h2>
-		 <div class="content">
-          <div class="cont-text">
-            <h2 class="con-txt1-app-cont05-text"><img src="${conPath}/img/ctn04_text_01@2x.png" width="407" height="280"  alt="주문하면 바로 와요! B마트"></h2>
-          </div>
-          <p class="cont-desc">
-            마트까지 가지 않아도, 기다리지 않아도<br />
-            주문하신 상품을 바로 배달해드립니다.
-          </p>
-          <ul class="service-noti">
-            <li> 서울, 인천 및 경기 일부 지역에서 서비스 이용 가능!</li>
-          </ul>
-          <div class="animation4"><img src="${conPath}/img/bmart_rider@2x.png" alt=""></div>
-        </div>
-	</section>
-	<!--할인받고 결제까지 10초면 끗!-->
-	<section class="section 7">
-		<h2></h2>
-		<div class="content">
-          <div class="cont-text">
-            <h2 class="con-txt1-app-cont06-text"><img src="${conPath}/img/ctn03_text_02@2x (1).png" width="500" height="272" alt="할인받고 결제까지 10초면 끗!"></h2>
-          </div>
-          <p class="cont-desc">
-            배민페이, 네이버페이 등은 물론<br>
-            각종 신용카드까지 결제 가능!
-          </p>
-          <div class="animation5"><img src="${conPath}/img/img-flag@2x.png"  width="351" height="365" alt=""></div>
-        </div>
-	</section>
-	<!--우리가 어떤 민족입니까 배달의민족-->
-	<section class="section 8">
-		<h2></h2>
-		<div class="footer-title">
-            <h2 class="txt-footer"><img src="${conPath}/img/txt-slogan@2x.png"  width="176" height="202" alt="우리가 어떤 민족입니까 배달의민족"></h2>
-          </div>
-          <div class="family-link">
-            <ul class="family-link-first-line">
-              <li><a href="http://www.woowahan.com" target="_blank"><img src="${conPath}/img/link_woowahan@2x.png" width="140" height="30"
-                    alt="우아한형제들"></a></li>
-              <li><a href="https://ceo.baemin.com" target="_blank"><img src="${conPath}/img/link_ceosite@2x.png"   width="165" height="30" alt="사장님사이트"></a>
-              </li>
-              <!--<li><a href="http://www.baeminriders.kr" target="_blank"><img src="img/link_baera@2x.png" alt="배민라이더스"></a></li>-->
-            </ul>
-            <ul class="family-link-second-line">
-              <li><a href="http://store.baemin.com/shop/main/index.php?utm_source=baemin.com&utm_medium=referral"
-                  target="_blank"><img src="${conPath}/img/link-store@2x.png"  width="117" height="30"alt="배민문방구"></a></li>
-              <li><a href="https://baeminconnect.onelink.me/k618/c1be3f30" target="_blank"><img src="${conPath}/img/link-rider@2x.png"  width="117" height="30"
-                    alt="배민커넥트"></a></li>
-            </ul>
-          </div>
-          <ul class="footer-sns-list">
-            <li><a title="facebook" href="http://www.facebook.com/smartbaedal/" target="_blank"><img
-                  src="${conPath}/img/icon_facebook@2x.png" width="40" height="35" alt="페이스북"></a></li>
-            <li><a title="instagram" href="http://www.instagram.com/baemin_official/" target="_blank"><img
-                  src="${conPath}/img/icon_instagram@2x.png" width="40" height="35" alt="인스타그램"></a></li>
-            <li><a title="naver blog" href="http://blog.naver.com/smartbaedal" target="_blank"><img
-                  src="${conPath}/img/icon_blog@2x.png"  width="40" height="35" alt="네이버블로그"></a></li>
-            <li><a title="youtube" href="https://www.youtube.com/user/smartbaedal2" target="_blank"><img
-                  src="${conPath}/img/icon_youtube@2x.png"  width="40" height="35" alt="유투브"></a></li>
-          </ul>
-          <div class="company-info">
-            <p class="address">
-              <span>(주)우아한형제들</span><br>
-              <span>서울시 송파구 위례성대로 2 장은빌딩 2층</span>
-            </p>
-			<br>
-            <p class="business-info">
-              <span>사업자번호:120-87-65763</span>
-              <span class="link-business-info">
-                <a href="http://www.ftc.go.kr/bizCommPop.do?wrkr_no=1208765763" target="_blank">사업자정보확인</a>
-              </span>
-			  <br>
-              <span>통신판매업: 서울 송파-0515</span>
-            </p>
-			<br>
-            <p class="contact">
-              <span>전자금융분쟁처리</span><br>
-              <span>대표전화 : 1600-0987</span><span class="ico-bar">|</span><span>팩스 : 050-6050-0400</span><br>
-              <span class="link-mail">
-                <a href="mailto:help@woowahan.com" target="_blank">대표메일 : help@woowahan.com</a>
-              </span>
-            </p>
-          </div>
-        </div>
+      </div>   
 <script>
  new fullpage("#fullpage", {
 	 licenseKey: "",
-	 sectionsColor:['#2AC1BC','#2AC1BC','#2AC1BC','#2AC1BC','#2AC1BC','#2AC1BC','#2AC1BC'], //배민색//
+	 sectionsColor:['#2AC1BC','#2AC1BC','#2AC1BC','#2AC1BC'], //배민색//
 });
 </script>
 </body>

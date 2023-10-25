@@ -16,7 +16,7 @@
 	}
 	#content_form{
 		position : relative;
-		width: 730px;
+		width: 930px;
 		height: 430px;
 		margin: auto;
 		border-radius : 15px;
@@ -94,19 +94,13 @@
 				<tr><th>제목</th>	 <td>${nContent.ntitle }</td></tr>
 				<tr><th>본문</th>	 <td><pre>${nContent.ncontent}</pre></td></tr>
 				<tr><th>조회수</th><td>${nContent.nhit }</td></tr>
+				<tr><th>IP</th><td>${nContent.nip }</td></tr>
 			
 			<tr>
 				<td colspan="2">
-					<c:if test="${member.mid eq board.mid }">
-				 		<button onclick="location='${conPath}/boardModifyView.do?fid=${board.fid }&pageNum=${param.pageNum }'" class="btn">수정</button>
-				 	</c:if>
-				 	<c:if test="${member.mid eq board.mid or not empty admin}">
-	 					<!-- 
-				 		<button onclick="location='${conPath}/boardDelete.do?fid=${board.fid }&pageNum=${param.pageNum }'">삭제</button>
-				 		-->
-						<button onclick="location='${conPath}/boardDelete.do?fgroup=${board.fgroup }&fstep=${board.fstep }&findent=${board.findent }&pageNum=${param.pageNum }'" class="btn" >삭제</button>
-			 		</c:if>
-				 	<button onclick="location='${conPath}/boardList.do?pageNum=${param.pageNum }'" class="btn">목록</button>
+				 	<button onclick="location='${conPath}/noticeModifyView.do?nid=${param.nid }&pageNum=${param.pageNum }'" class="btn">수정</button>
+					<button onclick="location='${conPath}/noticeDelete.do?nid=${param.nid }&ngroup=${notice.ngroup }&nstep=${notice.nstep }&nindent=${notice.nindent }&pageNum=${param.pageNum }'" class="btn" >삭제</button>
+				 	<button onclick="location='${conPath}/noticeList.do?pageNum=${param.pageNum }'" class="btn">목록</button>
 				</td>
 			</tr>
 		</table>
